@@ -1,8 +1,23 @@
 # Analytics Pipeline - Tableau Desktop
 
 This repository uses Tableau to visualize backend analytics and telemetry data.
-Members build separate workbooks and merge completed views into
-`Workbooks/Analytics Dashboard.twb` using the included REST API connector.
+Each member keeps all their assigned business questions in one workbook and
+imports the completed workbook into `Workbooks/Analytics Dashboard.twb` using
+the included REST API connector.
+
+## Contents
+
+- [Requirements](#requirements)
+- [Repository structure](#repository-structure)
+- [1. Clone the repository](#1-clone-the-repository)
+- [2. Install Tableau Desktop Free Edition](#2-install-tableau-desktop-free-edition)
+- [3. Install the REST API JDBC driver](#3-install-the-rest-api-jdbc-driver)
+- [4. Configure this clone as the Tableau repository](#4-configure-this-clone-as-the-tableau-repository)
+- [5. Create a member workbook](#5-create-a-member-workbook)
+- [6. Connect the member workbook to the REST API](#6-connect-the-member-workbook-to-the-rest-api)
+- [7. Add completed work to the main dashboard](#7-add-completed-work-to-the-main-dashboard)
+- [8. Commit the changes](#8-commit-the-changes)
+- [Official Tableau references](#official-tableau-references)
 
 ## Requirements
 
@@ -17,7 +32,7 @@ Members build separate workbooks and merge completed views into
 | Path | Purpose |
 | --- | --- |
 | `Workbooks/Analytics Dashboard.twb` | Main dashboard containing the completed team visualizations. |
-| `Workbooks/BQ-TYPE-MEMBER.twb` | Individual member workbook for one business question. |
+| `Workbooks/BQS-MEMBER.twb` | Member workbook containing all business questions assigned to that member. |
 | `Connectors/tableau_rest-v1.0.1.taco` | REST API connector supporting JSON and CSV endpoints. |
 
 ## 1. Clone the repository
@@ -71,25 +86,28 @@ connector available in Tableau Desktop.
 
 ## 5. Create a member workbook
 
-Create a separate workbook for each business question instead of editing
-`Analytics Dashboard.twb` directly. This keeps the work organized and reduces
-merge conflicts.
+Create one workbook per member instead of editing `Analytics Dashboard.twb`
+directly. Each member workbook contains all business questions assigned to that
+member. This keeps the work organized and reduces merge conflicts.
 
 1. Select **File > New** in Tableau Desktop.
 2. Save the new workbook under `Workbooks/` using this convention:
 
 ```text
-BQ-TYPE-MEMBER.twb
+BQS-MEMBER.twb
 ```
 
 The filename parts mean:
 
-- `BQ`: the business-question identifier, such as `BQ01`.
-- `TYPE`: the business-question category listed below.
+- `BQS`: indicates that the workbook contains the member's assigned business
+  questions.
 - `MEMBER`: the member's name or identifier.
 - `.twb`: the Tableau workbook file extension used by this repository.
 
-| Filename value | Business-question type |
+Use the following categories to classify the business questions inside the
+member workbook:
+
+| Type | Business-question category |
 | --- | --- |
 | `TYPE1` | App telemetry |
 | `TYPE2` | Direct user-experience improvement |
@@ -100,7 +118,7 @@ The filename parts mean:
 Example:
 
 ```text
-BQ01-TYPE1-POOKIE.twb
+BQS-POOKIE.twb
 ```
 
 ## 6. Connect the member workbook to the REST API
@@ -156,7 +174,7 @@ names unique to prevent Tableau from automatically renaming duplicates.
 Commit-message example:
 
 ```text
-feat: add BQ01 Tableau analysis
+feat: add POOKIE business-question workbook
 ```
 
 ## Official Tableau references
