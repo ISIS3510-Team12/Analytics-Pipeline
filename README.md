@@ -13,7 +13,7 @@ the included REST API connector.
 - [2. Install Tableau Desktop Free Edition](#2-install-tableau-desktop-free-edition)
 - [3. Install the REST API JDBC driver](#3-install-the-rest-api-jdbc-driver)
 - [4. Configure this clone as the Tableau repository](#4-configure-this-clone-as-the-tableau-repository)
-- [5. Create a member workbook](#5-create-a-member-workbook)
+- [5. Open your member workbook](#5-open-your-member-workbook)
 - [6. Connect the member workbook to the REST API](#6-connect-the-member-workbook-to-the-rest-api)
 - [7. Add completed work to the main dashboard](#7-add-completed-work-to-the-main-dashboard)
 - [8. Commit the changes](#8-commit-the-changes)
@@ -32,7 +32,12 @@ the included REST API connector.
 | Path | Purpose |
 | --- | --- |
 | `Workbooks/Analytics Dashboard.twb` | Main dashboard containing the completed team visualizations. |
-| `Workbooks/BQS-MEMBER.twb` | Member workbook containing all business questions assigned to that member. |
+| `Workbooks/BQS-CRISTIAN.twb` | Cristian's assigned business questions. |
+| `Workbooks/BQS-DIEGO.twb` | Diego's assigned business questions. |
+| `Workbooks/BQS-MANUELA.twb` | Manuela's assigned business questions. |
+| `Workbooks/BQS-SHAIEL.twb` | Shaiel's assigned business questions. |
+| `Workbooks/BQS-VALERIA.twb` | Valeria's assigned business questions. |
+| `Workbooks/BQS-VICTORIA.twb` | Victoria's assigned business questions. |
 | `Connectors/tableau_rest-v1.0.1.taco` | REST API connector supporting JSON and CSV endpoints. |
 
 ## 1. Clone the repository
@@ -84,25 +89,15 @@ connector available in Tableau Desktop.
    **To a Server**, and **Analytics Dashboard** should be available under
    **Open**.
 
-## 5. Create a member workbook
+## 5. Open your member workbook
 
-Create one workbook per member instead of editing `Analytics Dashboard.twb`
-directly. Each member workbook contains all business questions assigned to that
-member. This keeps the work organized and reduces merge conflicts.
+Each member has a dedicated workbook in `Workbooks/`. Add your assigned business
+questions to your member workbook instead of editing `Analytics Dashboard.twb`
+directly.
 
-1. Select **File > New** in Tableau Desktop.
-2. Save the new workbook under `Workbooks/` using this convention:
-
-```text
-BQS-MEMBER.twb
-```
-
-The filename parts mean:
-
-- `BQS`: indicates that the workbook contains the member's assigned business
-  questions.
-- `MEMBER`: the member's name or identifier.
-- `.twb`: the Tableau workbook file extension used by this repository.
+1. Select **File > Open** in Tableau Desktop.
+2. Open the workbook matching your member name, such as
+   `Workbooks/BQS-VALERIA.twb`.
 
 Use the following categories to classify the business questions inside the
 member workbook:
@@ -115,15 +110,16 @@ member workbook:
 | `TYPE4` | Benefits derived from data |
 | `TYPEMIX` | Combination of two or more types |
 
-Example:
+Name each worksheet inside the member workbook using the `TYPE-MEMBER`
+convention. Example sheet name:
 
 ```text
-BQS-POOKIE.twb
+TYPE1-MEMBER
 ```
 
 ## 6. Connect the member workbook to the REST API
 
-1. Open the member workbook created in the previous step.
+1. Open the member workbook selected in the previous step.
 2. Select **Data > New Data Source**.
 3. Under **To a Server**, select **More**, then choose **REST API**.
 4. Complete the **General** tab:
