@@ -1,5 +1,6 @@
 # Ignore packaged Tableau workbooks (contains compressed binary data)
 *.twbx
+*.twbr
 
 # Ignore data extracts and performance logs (never track large data files)
 *.hyper
