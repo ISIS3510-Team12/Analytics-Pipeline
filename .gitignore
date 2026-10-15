@@ -1,0 +1,16 @@
+# Ignore packaged Tableau workbooks (contains compressed binary data)
+*.twbx
+
+# Ignore data extracts and performance logs (never track large data files)
+*.hyper
+*.tde
+*.log
+*.twb.bak
+
+# Ignore local application folders
+Logs/
+Packages/
+
+# System specific files
+.DS_Store
+Thumbs.db
