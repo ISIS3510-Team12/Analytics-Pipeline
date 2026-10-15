@@ -170,7 +170,7 @@ names unique to prevent Tableau from automatically renaming duplicates.
 Commit-message example:
 
 ```text
-feat: add POOKIE business-question workbook
+feat: add POOKIE business-question sheets
 ```
 
 ## Official Tableau references
